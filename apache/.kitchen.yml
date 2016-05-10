@@ -1,0 +1,25 @@
+---
+driver:
+  name: docker
+
+driver_config:
+  http_proxy: http://web-proxy.fc.hp.com:8080
+  https_proxy: http://web-proxy.fc.hp.com:8080
+  no_proxy: localhost,127.0.0.1
+  forward: 80:80
+  privileged: true
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu
+    driver:
+      image: ubuntu 
+      platform: debian
+
+suites:
+  - name: default
+    run_list:
+      - recipe[apache::default]
+    attributes:
