@@ -11,3 +11,7 @@ describe service('apache2') do
   it { should be_running }
 end
 
+describe file('/var/www/html/index.html') do
+  it { should be_file }
+  it { should be_owned_by 'root' }
+end

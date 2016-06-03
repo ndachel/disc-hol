@@ -1,4 +1,3 @@
 # apache
 
-TODO: Enter the cookbook description here.
-
+Simple cookbook that installs apache and adds a very simple web page

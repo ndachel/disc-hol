@@ -16,5 +16,13 @@ describe 'apache::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it 'installs apache' do
+      expect(chef_run).to install_package('apache2')
+    end
+
+    it 'creates the html file' do
+      expect(chef_run).to render_file('/var/www/html/index.html').with_content(/Discover/)
+    end
   end
 end
